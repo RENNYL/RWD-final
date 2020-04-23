@@ -1,0 +1,867 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*以上為CSS Reset*/
+/*以下為CSS layout*/
+*{
+    box-sizing: border-box;
+	text-decoration: none;
+	font-family: Microsoft JhengHei;
+}
+.wrap{
+	max-width: 1050px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.header{
+	height: 420px;
+	background-image: url(../images/header_desktop.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: -10;
+}
+
+.header-cover{
+	background-color: rgb(0, 0, 0, 0.7) ;
+	width: 1000px;
+	height: 56px;
+	display: flex;
+	justify-content: space-between
+}
+.header-content{
+	display: flex;
+	justify-content: space-between;
+}
+.logo{
+	width: 122px;
+	height: 25px;
+	background-image: url(../images/logo_w@svg.svg);
+	background-repeat: no-repeat;
+	text-indent: 101%;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-left: 40px;
+	margin-top: 15px;
+	
+}
+.showmenu{
+	display: none;
+}
+.menu{
+	display: flex;
+}
+.menu a{
+	display: block;
+	color: white;
+	padding: 20px;
+}
+.menu li:hover{
+	background-color: rgb(247, 247, 247, 0.8);
+}
+.menu li a:hover{ 
+	color: rgb(60, 17, 1);
+}
+
+.banner{
+	margin: auto;
+	width: 460px;
+	height: 150px;
+	background-color: rgb(0, 0, 0,0.4);
+	margin-top: 75px;
+}
+.banner-text{
+	color: white;
+	font-size: 36px;
+	text-align: center;
+	font-weight: 200;
+	padding: 20px;
+}
+.banner-text h2{
+	padding-bottom: 15px;
+}
+
+.banner-text h3{
+	font-size: 17px;
+	padding-top: 10px;
+}
+@media (max-width: 569px) {
+	.menu{
+		/*隱藏選單開始*/
+	   max-height: 0px;
+	   overflow: hidden;
+		/*隱藏選單結束*/
+	   position: absolute;
+	   top: 56px;
+	   right: 0;
+	   left: 0;
+	   flex-direction: column;
+	   align-items: flex-end;
+	   transition: all 1.5s;
+	   display: block;
+	   text-align: center;
+	}
+	.menu a:hover{
+		color: #3D1101;
+	}
+	.ham-icon{
+		width: 50px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: rotate(0deg);
+		transition: .5s ease-in-out;
+		cursor: pointer;
+	}
+	.ham-icon span {
+		display: block;
+		position: absolute;
+		height: 5px;
+		width: 65%;
+		background: #f7f7f7;
+		border-radius: 9px;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+	}
+	.ham-icon span:nth-child(1) {
+		top: 8px;
+	}
+	.ham-icon span:nth-child(2),.ham-icon span:nth-child(3) {
+		top: 18px;
+	}
+	.ham-icon span:nth-child(4) {
+		top: 28px;
+	}
+	.ham-icon.open span:nth-child(1) {
+		top: 50px;
+		width: 0%;
+		left: 50%;
+	}
+	.ham-icon.open span:nth-child(2) {
+		transform: rotate(45deg);
+	}  
+	.ham-icon.open span:nth-child(3) {
+		transform: rotate(-45deg);
+	}
+	.ham-icon.open span:nth-child(4) {
+		top: 18px;
+		width: 0%;
+		left: 50%;
+	}  
+	.showmenu{
+		display: block;
+		margin-right: 10px;
+		margin-top: 5px;
+		cursor: pointer;
+	}
+	/*點擊後動態 加上 class */
+	.menu-show .menu{
+		max-height: 500px;
+	}
+	.menu li{
+		background-color: rgb(60, 17, 1, 0.9);
+		border-bottom: 1px dashed #CF9E9E;
+	}
+	.menu li :hover{
+		background-color: rgba(194, 191, 190, 0.8);
+	}
+	.header{
+		height: 420px;
+		background-image: url(../images/header_mobile.png);
+	}
+	.banner{
+		margin: auto;
+		width: 320px;
+		height: 190px;
+		margin-top: 75px;
+	}
+	.banner-text{
+		font-size: 34px;
+		padding: 10px;
+	}
+	.banner-text span{
+		padding-left: 84px;
+		padding-right: 84px;
+	}
+	.banner-text h2{
+		line-height: 1.3;
+	}
+}
+.footer{
+	display: flex;
+	justify-content: space-between;
+	padding: 50px 20px;
+	background-color: #efe9e7;
+}
+.footer-text{
+	display: flex;
+}
+.footer-about{
+	padding-right: 50px;
+}
+.footer h2{
+	font-size: 24px;
+	color: rgb(60, 17, 1);
+	padding-bottom: 20px;
+}
+.footer h3{
+	color: #3D1101;
+	line-height: 1.2;
+}
+.footer-contact li{
+	list-style: disc;
+}
+.footer-media{
+	padding-right: 30px;
+}
+.footer-icon{
+	font-size: 36px;
+	text-align: right;
+	padding-top: 20px;
+}
+.google{
+	color: #DB4437;
+}
+.twitter{
+	color: #41ABE1;
+}
+.facebook{
+	color: #3A5795;
+}
+@media (max-width: 569px){
+	.footer{
+	align-items: flex-end;
+	justify-content: space-between;
+	}
+	.footer-contact{
+		padding-left: 20px;
+	}
+	.footer-about{
+		display: none;
+	}
+	.footer-media img{
+		display: none;
+	}
+	.footer-media{
+		padding-right: 10px;
+	}
+
+
+}
+/*以上為CSS Layout*/
+/*以下為Index CSS */
+.content{
+	width: 100%;
+}
+.feature{
+	background-color: #efe9e7;
+	text-align: center;
+	padding-bottom: 50px;
+}
+.feature .title h3{
+	display: inline-block;
+	color: #3D1101;
+	font-size: 20px;
+	text-align: center;
+	line-height: 2;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	position: relative;
+}
+/* 用.box的偽元素，來做出橫線 */
+.feature .title h3:before, .feature .title h3:after{
+	content: "";
+	height: 1px;
+	background: black;
+	position: absolute;
+	top: 55%;
+	width: 50%;
+}
+  /* 分別調整:before和:after的位置 */
+  .feature .title h3:before{
+	left: -50%;
+}
+  .feature .title h3:after{
+	right: -50%;
+}
+.feature-content {
+	display: flex;
+	padding-left: 40px;
+	padding-right: 40px;	
+}
+.feature-content li{
+	padding-right: 10px;
+	padding-left: 20px;
+}
+
+.feature-content img{
+	border-radius: 50%;
+}
+.feature-content h4{
+	color: #3D1101;
+	font-size: 18px;
+	padding: 20px;
+	font-weight: 300;
+}
+.feature-content p{
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #3D1101;
+	text-align: left;
+	line-height: 1.5;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+	/* start of tablet styles */
+	.feature-content {
+		padding-left: 20px;
+		padding-right: 20px;	
+	}
+	.feature-content li{
+		padding-left: 10px;
+	}
+}
+@media (max-width: 569px){
+	.feature-content {
+		display: flex;
+		flex-direction: column;
+	}
+	.feature-content li{
+		padding-bottom: 20px;
+	}
+}
+.chef{
+	background-color: #3D1101;
+	display: flex;
+	align-items: center;
+	color: #EFE9E7;
+	font-weight: 300;
+	line-height: 1.5;
+	padding-right: 60px;
+}
+.chef img{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.chef h3{
+	font-size: 20px;
+}
+.chef h4{
+	padding-bottom: 20px;
+}
+@media (max-width: 768px) {
+	.chef{
+		padding-right: 10px;
+	}
+	.chef img{
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 50%;
+	}
+}
+@media (max-width: 569px){
+	.chef{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+		font-weight: 300;
+		line-height: 1.5;
+		padding-right: 0px;
+	}
+	.chef img{
+		width: 100%;
+	}
+	.chef-detail{
+		padding: 30px;
+	}
+}
+.experience{
+	background-color: #efe9e7;
+	color: #3D1101;
+	letter-spacing: 1.5px;
+	padding-bottom: 50px;
+}
+.experience h3{
+	font-size: 24px;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 32px;
+}
+.exp-list{
+	display: flex;
+}
+.exp-list img{
+	border-radius: 50%;
+}
+.exp-list li{
+	display: flex;
+	align-items: flex-start;
+	padding-left: 20px;
+}
+.exp-text{
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	padding-right: 20px;
+}
+.exp-text h4{
+	font-size: 18px;
+	padding-top: 20px;
+}
+.exp-text h5{
+	padding-top: 20px;
+	line-height: 1.5;
+}
+.exp-text p{
+	padding-top: 20px;
+	align-self: flex-end;
+	opacity: 0.7;
+}
+@media (max-width: 768px) {
+	.exp-text{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+@media (max-width: 569px){
+	.exp-list{
+		display: flex;
+		flex-direction: column;
+	}
+}
+.booking{
+	background: rgba(223, 210, 210, 0.8);
+	color: #3D1101;
+	padding: 50px 30px;
+	padding-top: 50px;
+}
+.booking h3{
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 40px;
+	line-height: 1.5;
+	letter-spacing: 1px;
+}
+.booking-detail{
+	display: flex;
+}
+.form{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.form input{
+	width:420px;
+	height: 34px;
+	font-size: 16px;
+}
+.form p{
+	font-size: 14px;
+	line-height: 2;
+}
+.vegan-row{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.vegan-row input{
+	width: 40px;
+	height: 20px;
+}
+.booking-btn{
+	display: flex;
+	justify-content: flex-end;
+}
+.booking-btn input{
+	border-radius: 5px;
+	width: 70px;
+	height: 32px;
+	font-size: 14px;
+	background-color:#F56C23;
+	color: white;
+	cursor: pointer;
+}
+.booking-btn .btn-cancle{
+	background-color: gray;
+}
+@media (max-width: 768px) {
+	.form input{
+		width:220px;
+		height: 36px;
+		font-size: 16px;
+	}
+	.vegan-row{
+		align-items: flex-start;
+	}
+	.vegan-row input{
+		width: 40px;
+		height: 20px;
+	}
+	.booking-btn{
+		justify-content: flex-start;
+		padding-top: 10px;
+		padding-left: 100px;
+	}
+	.booking-btn input{
+		width: 60px;
+		height: 28px;
+	}
+}
+@media (max-width: 569px){
+	.booking-detail{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.booking-detail img{
+		width: 100%;
+	}
+	.form input{
+		width:300px;
+		height: 32px;
+	}
+	.vegan-row input{
+		width: 40px;
+		height: 20px;
+	}
+	.booking-btn{
+		display: flex;
+		justify-content: flex-end;
+	}
+	.booking-btn input{
+		width: 70px;
+		height: 32px;
+	}
+
+
+}
+/*以上為index.html CSS */
+/*以下為cart.html CSS */
+.cart-content{
+	display: flex;
+	background-color: #efe9e7;
+}
+.cart-aside{
+	width: 250px;
+	padding:20px ;
+}
+.cart-aside h3{
+	color: #3D1101;
+	font-size: 20px;
+	line-height: 36px;
+	text-align: center;
+	padding: 20px;
+}
+.aside-list li a{
+	display: block;
+	color: #3D1101;
+	line-height: 32px;
+	padding-left: 10px;
+	font-weight: 300;
+}
+.aside-list li a:hover{
+	color: white;
+	background-color: #3D1101;
+}
+.aside-list li:nth-of-type(2n) {
+	border-bottom: 1px solid #3D1101;
+}
+.product{
+	width: 800px;
+}
+.cart-headerbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 20px;
+	padding-top: 40px;
+	padding-right: 30px;
+}
+.cart-search input{
+	width: 460px;
+	height: 32px;
+	font-size: 18px;
+	border: 2px solid #3D1101;
+	background-color: #efe9e7;
+}
+.cart-search a i{
+	color: white;
+	background-color: #3D1101;
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	position: absolute;
+}
+.checkout-cart a{
+	color: #3D1101;
+	text-align: center;
+	padding: 5px;
+}
+.checkout-cart a i{
+	border-left: 1px solid #3D1101;
+}
+.checkout-cart a i{
+	padding-left: 15px;
+}
+.checkout-cart a:hover{
+	color: rgb(133, 111, 111);
+}
+@media (max-width: 768px){
+	.cart-aside h3{
+		padding: 0px;
+		padding-top: 20px;
+		padding-bottom: 30px;
+	}
+	.cart-headerbar{
+		padding-right: 10px;
+	}
+	.cart-search input{
+		width: 400px;
+	}
+}
+@media (max-width: 569px){
+	.cart-aside{
+
+		margin: 0 auto;
+	}
+	.product{
+		width: auto;
+	}
+	.cart-content{
+		display: flex;
+		flex-direction: column;
+	}
+	.cart-headerbar{
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		padding-left: 0px;
+	}
+	.cart-search input{
+		width: 230px;
+	}
+	.checkout-cart{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-left: 40px;
+	}
+	.checkout-cart a i{
+		border-left: none;
+		padding-left: 0;
+	}
+}
+.product-list{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+.product-list li{
+	height: 280px;
+	box-shadow: 5px 2px 7px gray;
+	margin-bottom: 20px;
+}
+.product-img i{
+	position: absolute;
+	color: white;
+	font-size: 24px;
+	padding: 10px;
+	cursor: pointer;
+}
+.product-img i.bold {
+	font-weight: bold;
+}
+.product-img img{
+	width: 240px;
+	height: auto;
+}
+.product-list h3{
+	font-size: 20px;
+	color:#3D1101 ;
+	text-align: center;
+	padding-top: 20px;
+	letter-spacing: 2px;
+}
+.product-list h6{
+	font-size: 14px;
+	color:#3D1101 ;
+	text-align: center;
+	line-height: 1.5;
+	position: relative;
+}
+.product-list  hr{
+	width:40%; 
+	height: 1px;
+	color: #3D1101;
+	background-color: #282828;
+	border: 0 ;
+}
+.product-list h4{
+	font-size: 20px;
+	color:#3D1101 ;
+	text-align: center;
+	line-height: 1.5;
+	font-family:'Roboto', sans-serif;
+	margin-top: 30px;
+}
+.product-list h5{
+	color:#FF5E45 ;
+	text-align: center;
+	line-height: 1.5;
+	border: 1px solid #FF5E45;
+	width: 200px;
+	margin: 10px auto;
+}
+.product-list h5:hover{
+	color: white ;
+	background-color: rgb(255, 94, 69);
+	cursor: pointer;
+}
+@media (max-width: 569px){
+	.product-list{
+		justify-content: center;
+	}
+}
+/*以上為cart.html CSS */
+/*以下為login.html CSS */
+.login-content{
+	background-color: #efe9e7;
+	width: auto;
+	padding-bottom: 50px;
+}
+.login-title h2{
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size: 48px;
+	color: #3D1101;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+.login-title h4{
+	font-size: 20px;
+	color: #3D1101;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.login-card{
+	box-shadow: 5px 5px 6px rgb(150, 148, 148);
+	border-top: 4px solid orangered;
+	width: 300px;
+	height: 275px;
+	margin: 0px auto;
+	padding: 20px 10px;
+}
+.login-card h4{
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size: 18px;
+	color: #3D1101;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.login-card p{
+	padding-bottom: 5px;
+	color: #3D1101;
+}
+.login-input input{
+	background-color: #fff;
+	width: 270px;
+	height: 32px;
+	margin-bottom: 5px;
+	text-indent: 30px;
+}
+.login-input i{
+	position: absolute;
+	line-height: 32px;
+	padding-left: 10px;
+	color: rgb(61, 17, 1, 0.7);
+}
+
+.login-input span{
+	color:#FF5E45;
+	font-size: 14px;
+	cursor: pointer;
+}
+.login-btn{
+	padding-top: 30px;
+	text-align: center;
+}
+.login-btn input{
+	width: 125px;
+	height: 32px;
+	color: white;
+	font-size: 14px;
+	letter-spacing: 2px;
+	background: rgba(0,0,0,0.35);
+	cursor: pointer;
+}
+.login-btn span input{
+	background: #F56C23 ;
+}
+.login-btn input:hover{
+	opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*以上為login.html CSS */
